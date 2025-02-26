@@ -1,0 +1,32 @@
+#body-background {
+    /* Specify your heart image file path */
+    background-image: url('../static/images/docimg/heartfull.jpg'); /* replace with your actual image name */
+    background-size: cover; /* makes the image cover the whole background */
+    background-repeat: no-repeat; /* prevents the image from repeating */
+    background-position: center; /* centers the image */
+    height: 100vh; /* makes the body cover the full height of the viewport */
+    margin: 0; /* removes default margin */
+    /* background-color: rgb(26, 20, 20); */
+
+}
+
+#body-background {
+    position: relative;
+}
+
+#body-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: rgba(255, 255, 255, 0.5); white with 50% opacity */
+    z-index: 1; /* makes sure this overlay is on top */
+}
+
+/* ensures content is above the background and overlay */
+.content {
+    position: relative;
+    z-index: 3;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="..\static\css\login.css">
+    </head>
+<body>
+    <div class="wrapper">
+        <div class="title-text">
+          <div class="title login">Login Form</div>
+          <div class="title signup">Signup Form</div>
+        </div>
+        <div class="form-container">
+          <div class="slide-controls">
+            <input type="radio" name="slide" id="login" checked>
+            <input type="radio" name="slide" id="signup">
+            <label for="login" class="slide login">Login</label>
+            <label for="signup" class="slide signup">Signup</label>
+            <div class="slider-tab"></div>
+          </div>
+          {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+              <ul class="flashes">
+                  {% for category, message in messages %}
+                      <li class="{{ category }}">{{ message }}</li>
+                  {% endfor %}
+              </ul>
+          {% endif %}
+      {% endwith %}
+          <div class="form-inner">
+            
+            <form action="{{ url_for('login') }}" class="login" method="post">
+              <div class="field">
+                <input type="text" name="email" placeholder="Email Address" required>
+              </div>
+              <div class="field">
+                <input type="password" name="password" placeholder="Password" required>
+              </div>
+              <div class="pass-link"><a href="#">Forgot password?</a></div>
+              <div class="field btn">
+                <div class="btn-layer"></div>
+                <input type="submit" value="Login">
+              </div>
+              <div class="signup-link">Not a member? <a href="">Signup now</a></div>
+              <button style="text-align: center;"><a href="/">Back</a></button>
+              <h3 style="color: white;">{{s}}</h3>
+            </form>
+            
+            <form action="{{ url_for('signup') }}" class="signup" method="post">
+              <div class="field">
+                <input type="text" name="email" placeholder="Email Address" required>
+              </div>
+              <div class="field">
+                <input type="password" name="password" placeholder="Password" required>
+              </div>
+              <div class="field">
+                <input type="password" name="confirm_password" placeholder="Confirm password" required>
+              </div>
+              <div class="field btn">
+                <div class="btn-layer"></div>
+                <input type="submit" value="Signup">
+              </div>
+              <button style="text-align: center;"><a href="/">Back</a></button>
+              <h3 style="color: white;">{{a}}</h3>
+            </form>
+          </div>
+        </div>
+      
+    </body>
+    <script src="..\static\js\login.js"></script>
+</html>
+
+
+
+
